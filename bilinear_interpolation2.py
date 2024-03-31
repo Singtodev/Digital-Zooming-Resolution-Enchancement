@@ -88,7 +88,11 @@ if image is None:
     print(f"Error: Failed to load image '{image_path}'")
 else:
     # Perform bilinear interpolation for zooming
-    zoom_factor = 0.5  # Adjust this value to change the zoom level
+    while True:
+        zoom_factor = float(input('Enter Zoom Factor Value: '))  # Adjust this value to change the zoom level
+        if zoom_factor > 0:
+            break
+        print('Zoom Factor Value Must More Than 0\nIf You Want To Zoom Out Use 0.X')
     zoomed_image = bilinear_interpolation(image, zoom_factor)
 
     # Display the zoomed image
